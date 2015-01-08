@@ -7,6 +7,23 @@ var bio = {
 	"skills" : ["C#", "Javascript", "HTML", "CSS", "Windows", "SQL", "Visual Studio", "GIT"]
 };
 
+var work = {
+
+};
+
+var education = {
+
+};
+
+work.position = "Service Ops";
+work.employer = "Microsoft";
+work.yearsWorked = "10";
+work.city = "Redmond";
+
+education["name"] = "DeVry";
+education["yearsAttended"] = "3";
+education["city"] = "Federal Way";
+
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
@@ -23,5 +40,6 @@ $("#topContacts").append(formattedMobile);
 $("#topContacts").append(formattedEmail);
 $("#topContacts").append(formattedGithub);
 $("#header").append(formattedWelcomeMsg);
-
+$("#main").append(work["position"]);
+$("#main").append(education.name);
 
