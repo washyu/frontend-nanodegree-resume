@@ -11,7 +11,7 @@ var work = {
 		{
 			"employer": "Microsoft",
 			"title": "Service Ops",
-			"location" : "Redmond, WA, US"
+			"location" : "Redmond, WA, US",
 			"dates": "10",
 			"description": ""
 		}
@@ -42,23 +42,30 @@ var education = {
 var projects = {
 	"projects": [
 		{
-			"title" : "";
-			"dates" : "";
-			"description" : "";
+			"title" : "",
+			"dates" : "",
+			"description" : "",
 			"images" : ["https://fakeurl.net/somthing.jpg"]
 		}
 	]
 }
 
-/*
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureURL);
-var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
-
+//var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+if(bio.skills.lenght > 0)
+{
+	$("#header").append(HTMLskillsStart);
+	bio.skills.forEach(function(skill){
+		var formatedSkill = HTMLskills.replace("%data%", skill);
+		console.log(skill);
+		$("#skills").append(formatedSkill);
+	});
+}
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
@@ -66,8 +73,8 @@ $("#header").prepend(formattedBioPic);
 $("#topContacts").append(formattedMobile);
 $("#topContacts").append(formattedEmail);
 $("#topContacts").append(formattedGithub);
-$("#header").append(formattedWelcomeMsg);
-$("#main").append(work["position"]);
-$("#main").append(education.name);
-*/
+//"#header").append(formattedWelcomeMsg);
+//"#main").append(work["position"]);
+//"#main").append(education.name);
+
 
