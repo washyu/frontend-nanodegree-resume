@@ -64,13 +64,28 @@ var education = {
 var projects = {
 	"projects": [
 		{
-			"title" : "",
-			"dates" : "",
-			"description" : "",
-			"images" : ["https://fakeurl.net/somthing.jpg"]
+			"title" : "the test",
+			"dates" : "2015",
+			"description" : "test",
+			"images" : ["images/197x148.gif", "images/197x148.gif"]
 		}
 	]
 }
+
+
+projects.display = function() {
+	this.projects.forEach(function(project){
+		$("#projects").append(HTMLprojectStart)
+		$(".project-entry:last").append(HTMLprojectTitle.replace("%data%", project.title));
+		$(".project-entry:last").append(HTMLprojectDates.replace("%data%", project.dates));
+		$(".project-entry:last").append(HTMLprojectDescription.replace("%data%", project.description));
+		if(project.images.length > 0){
+			for(var image in project.images){
+				$(".project-entry:last").append(HTMLprojectImage.replace("%data%", project.images[image]));	
+			}
+		}		
+	});
+};
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -79,7 +94,7 @@ var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureURL);
 
-if(bio.skills.lenght > 0)
+if(bio.skills.length > 0)
 {
 	$("#header").append(HTMLskillsStart);
 	bio.skills.forEach(function(skill){
@@ -104,6 +119,11 @@ if(work.jobs.length > 0)
 	});
 }
 
+if(projects.projects.length > 0)
+{
+	projects.display();	
+}
+
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 $("#header").prepend(formattedBioPic);
@@ -112,15 +132,3 @@ $("#topContacts").append(formattedEmail);
 $("#topContacts").append(formattedGithub);
 
 
-$("#main").append(internationalizeButton);
-
-function inName(name) {
-	var internationalName = name;
-	var splitName = internationalName.split(" ");
-		console.log(splitName);
-	var firstName = splitName[0].toLowerCase();
-	var lastName = splitName[1].toUpperCase();
-	console.log(splitName);
-	internationalName = firstName[0].toUpperCase() + firstName.slice(1) + " " + lastName;
-	return internationalName;
-}
