@@ -1,3 +1,4 @@
+var name = "Shaun Jackson"
 var bio = {
 	"name" : "Shaun Jackson",
 	"role" : "Web Developer",
@@ -111,3 +112,15 @@ $("#topContacts").append(formattedEmail);
 $("#topContacts").append(formattedGithub);
 
 
+$("#main").append(internationalizeButton);
+
+function inName(name) {
+	var internationalName = name;
+	var splitName = internationalName.split(" ");
+		console.log(splitName);
+	var firstName = splitName[0].toLowerCase();
+	var lastName = splitName[1].toUpperCase();
+	console.log(splitName);
+	internationalName = firstName[0].toUpperCase() + firstName.slice(1) + " " + lastName;
+	return internationalName;
+}
