@@ -1,10 +1,10 @@
-var name = "Shaun Jackson"
 var bio = {
 	"name" : "Shaun Jackson",
 	"role" : "Web Developer",
 	"contacts" : {"mobile" : "(253) 219-7502", "email" : "washyu@hotmail.com", "github" : "https://github.com/washyu", "localtion" : "Puyallup, WA, US"},
 	"pictureURL" : "images/me.jpg",
-	"skills" : ["C#", "Javascript", "HTML", "CSS", "Windows", "SQL", "Visual Studio", "GIT"]
+	"skills" : ["C#", "Javascript", "HTML", "CSS", "Windows", "SQL", "Visual Studio", "GIT"],
+	"welcomeMessage" : "Hello to the world!"
 };
 
 var work = {
@@ -93,6 +93,16 @@ var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureURL);
+var formattedWelcomeMessage = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage)
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+$("#header").append(formattedBioPic);
+$("#header").append(formattedWelcomeMessage);
+$("#topContacts").append(formattedMobile);
+$("#topContacts").append(formattedEmail);
+$("#topContacts").append(formattedGithub);
+
 
 if(bio.skills.length > 0)
 {
@@ -123,12 +133,3 @@ if(projects.projects.length > 0)
 {
 	projects.display();	
 }
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").prepend(formattedBioPic);
-$("#topContacts").append(formattedMobile);
-$("#topContacts").append(formattedEmail);
-$("#topContacts").append(formattedGithub);
-
-
