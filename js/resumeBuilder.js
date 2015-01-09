@@ -12,9 +12,30 @@ var work = {
 			"employer": "Microsoft",
 			"title": "Service Ops",
 			"location" : "Redmond, WA, US",
-			"dates": "10",
-			"description": ""
-		}
+			"dates": "2009-2014",
+			"description": "Ran manual and automated tests against new builds to verify build quality. Worked with developers and testers to resolve any issues that arose during tests. "
+		},
+		{
+			"employer": "Volt (Microsoft)",
+			"title": "Software Test Engineer III",
+			"location" : "Redmond, WA, US",
+			"dates": "2006-2009",
+			"description": "Ran the performance test framework against new builds of Hyper-V. Verified performance numbers across builds.  Worked with the developers and testers to resolve any issue that arose during the tests."	
+		},
+		{
+			"employer": "Volt (Microsoft)",
+			"title": "SDET I",
+			"location" : "Redmond, WA, US",
+			"dates": "2004-2006",
+			"description": "Ran the testing framework against new builds to verify build quality.  Wrote test plans and coded automation tests with in the automation framework. Worked with developers to verify the cause of test failures. In event failures were caused by specification changes, modified the test content. "	
+		},
+		{
+			"employer": "Volt (Microsoft)",
+			"title": "Software Test Engineer",
+			"location" : "Redmond, WA, US",
+			"dates": "2004-2005",
+			"description": "Ensured that third-party devices and systems passed all of Microsoft’s requirements before they received a “Build for Windows” logo."	
+		},
 	]
 
 }
@@ -56,14 +77,29 @@ var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureURL);
-//var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+
 if(bio.skills.lenght > 0)
 {
 	$("#header").append(HTMLskillsStart);
 	bio.skills.forEach(function(skill){
 		var formatedSkill = HTMLskills.replace("%data%", skill);
-		console.log(skill);
 		$("#skills").append(formatedSkill);
+	});
+}
+
+if(work.jobs.length > 0)
+{
+	work.jobs.forEach(function(job) {
+		var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+		var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+		var formattedDate = HTMLworkDates.replace("%data%", job.dates);
+		var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+		var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
+		$("#workExperience").append(HTMLworkStart);
+		$(".work-entry:last").append(formattedEmployer + formattedTitle);
+		$(".work-entry:last").append(formattedDate);
+		$(".work-entry:last").append(formattedLocation);
+		$(".work-entry:last").append(formattedDescription);
 	});
 }
 
@@ -73,8 +109,5 @@ $("#header").prepend(formattedBioPic);
 $("#topContacts").append(formattedMobile);
 $("#topContacts").append(formattedEmail);
 $("#topContacts").append(formattedGithub);
-//"#header").append(formattedWelcomeMsg);
-//"#main").append(work["position"]);
-//"#main").append(education.name);
 
 
