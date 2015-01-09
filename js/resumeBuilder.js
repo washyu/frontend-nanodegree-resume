@@ -1,29 +1,56 @@
 var bio = {
 	"name" : "Shaun Jackson",
 	"role" : "Web Developer",
-	"contacts" : {"mobile" : "(253) 219-7502", "email" : "washyu@hotmail.com", "github" : "https://github.com/washyu", "localtion" : "Puyallup, WA"},
+	"contacts" : {"mobile" : "(253) 219-7502", "email" : "washyu@hotmail.com", "github" : "https://github.com/washyu", "localtion" : "Puyallup, WA, US"},
 	"pictureURL" : "images/me.jpg",
-	"welcomeMessage" : "Hello World",
 	"skills" : ["C#", "Javascript", "HTML", "CSS", "Windows", "SQL", "Visual Studio", "GIT"]
 };
 
 var work = {
+	"jobs" : [
+		{
+			"employer": "Microsoft",
+			"title": "Service Ops",
+			"location" : "Redmond, WA, US"
+			"dates": "10",
+			"description": ""
+		}
+	]
 
-};
+}
 
 var education = {
+    "schools": [
+        {
+            "name": "DeVry",
+            "city": "Federal Way, WA, US",
+            "degree": "BS",
+            "major": "Computer Information Systems",
+            "gradYear": 2004
+        }
+    ],
+    "onlineCources": [
+        {
+            "title": "Javascript Syntax",
+            "school": "Udacity",
+            "dates": 2015,
+            "url": "Http://www.udacity.com/course/ud804"
+        }
+    ]
+}
 
-};
+var projects = {
+	"projects": [
+		{
+			"title" : "";
+			"dates" : "";
+			"description" : "";
+			"images" : ["https://fakeurl.net/somthing.jpg"]
+		}
+	]
+}
 
-work.position = "Service Ops";
-work.employer = "Microsoft";
-work.yearsWorked = "10";
-work.city = "Redmond";
-
-education["name"] = "DeVry";
-education["yearsAttended"] = "3";
-education["city"] = "Federal Way";
-
+/*
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
@@ -42,4 +69,5 @@ $("#topContacts").append(formattedGithub);
 $("#header").append(formattedWelcomeMsg);
 $("#main").append(work["position"]);
 $("#main").append(education.name);
+*/
 
